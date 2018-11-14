@@ -71,10 +71,11 @@ class Config():
 
 def _expand_path(fpath): return Path(fpath).expanduser()
 def url2name(url): return url.split('/')[-1]
+def _url2tgz(url): return datapath4file(f'{url2name(url)}.tgz')
+
 def _url2path(url, data=True):
     name = url2name(url)
     return datapath4file(name) if data else modelpath4file(name)
-def _url2tgz(url): return datapath4file(f'{url2name(url)}.tgz')
 
 def modelpath4file(filename):
     "Returns URLs.MODEL path if file exists. Otherwise returns config path"
